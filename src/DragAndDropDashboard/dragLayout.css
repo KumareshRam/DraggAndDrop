@@ -1,0 +1,187 @@
+.dragListLayout{
+    margin: 35px 15px 20px 35px;
+}
+.leftLayer{
+    display: flex;
+    align-items: center;
+}
+.ticket{
+    color: #6c757d;
+    margin: 0px 3px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.button{
+    margin: 0px 3px;
+    color: #5c6063;
+    padding: 8px 15px;
+    font-size: 14px;
+    background: #EEE;
+    border: 1px solid #cecccc;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.activeBtn{
+    background: #58bd8e;
+    color: #ffff;
+    border: 1px solid #58bd8e;
+}
+.filter{
+    /* margin: 0px 10px; */
+}
+.refresh{
+    /* margin: 0px 10px; */
+}
+.headerLayout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightLayer{
+    display: flex;
+    align-items: center;
+}
+.config{
+    margin: 0px 3px;
+    color: #5c6063;
+    padding: 8px 15px;
+    font-size: 14px;
+    background: #EEE;
+    border: 1px solid #cecccc;
+    border-radius: 2px;
+    align-items: center;
+    display: flex;
+}
+.count{
+    font-size: 12px;
+    margin: 0px 3px;
+}
+input{
+    outline: unset;
+    border: 0px;
+    height: 34px;
+}
+img{
+    height: 15px;
+    width: 15px;
+    display: block;
+}
+.search{
+    border-bottom: 1px solid #cecccc;
+    margin: 0px 3px;
+}
+.arrowRight{
+    transform: rotateZ(
+        180deg
+        );
+}
+.searchIcon{
+    float: right;
+    padding-top: 12px;
+}
+.settingIcon{
+    padding-right: 5px;
+}
+.dragList{
+    display: flex;
+    margin: 30px -5px 0px;
+}
+.column{
+    flex-basis: calc(25% - 13px);
+    background: #EEEE;
+    padding: 8px 0px;
+    margin: 0px 5px;
+    border-radius: 4px;
+}
+.orderCount{
+    font-weight: bold;
+    font-size: 16spx;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0px 0px 20px 8px;
+    color: #535454;
+}
+.card{
+    padding: 15px 15px 25px;
+    border-radius: 6px;
+    background: #FFF;
+    margin: 0px 8px 10px 8px;
+    border-left: 3px solid green;
+}
+.response{
+    display: flex;
+    align-items: center;
+}
+.response:first-child span{
+    color: grey;
+    font-size: 14px;
+    margin-right: 10px;    
+}
+.response span:nth-child(2){
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 2px 5px;
+    background: #7268fb1c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.cardList{
+    overflow: auto;
+    height: 550px;
+}
+.cardList::-webkit-scrollbar{
+    width: 8px;
+    background-color: #b0b0b0;
+}
+.cardList::-webkit-scrollbar-thumb{
+    border-radius: 45px;
+    background-color: #b0b0b0;
+}
+.cardList::-webkit-scrollbar-track{
+    background: #EEEE;
+}
+.orderNo{
+    font-weight: bold;
+    font-size: 14px;
+    color: #6c757d;
+    padding: 8px 0px;
+}
+.items{
+    font-size: 12px;
+    line-height: 20px;
+    color: #666666;
+    padding-bottom: 8px;
+}
+.baseLayer{
+    display: flex;
+    font-size: 10px;
+    justify-content: space-between;
+    color: #666666;
+    align-items: center;
+}
+.leftSegment:first-child span{
+    margin-right: 6px;
+}
+.rightSegment{
+    display: flex;
+    align-items: center;
+}
+.rightSegment div:nth-child(1){
+    margin-right: 5px;
+}
+.rightSegment div:nth-child(2){
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #d6f1e6;
+    border: 1px solid #b9fbe0; 
+}
+.activeCard{
+    border-left: 3px solid #e05c5c;
+}
+.noResult{
+    text-align: center;
+    font-size: 14px;
+    color: #717171;
+}
