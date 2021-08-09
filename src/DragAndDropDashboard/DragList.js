@@ -9,31 +9,32 @@ class DragList extends React.Component {
         return (
             <Draggable draggableId={list.id} index={index}>
                 {(provided) => (
-                    <div {...provided.draggableProps} ref={provided.innerRef} className="orders">
-                        <div
-                            {...provided.dragHandleProps}
-                        >
-                            <div className="column">
-                                <div className="orderCount">{list.title}</div>
-                                <Droppable droppableId={list.id}>
-                                    {(provided) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            className="cardWrap"
-                                            {...provided.droppableProps}
-                                        >
-                                            <div ref={provided.innerRef} className="cardList" {...provided.droppableProps}>
-                                                <CardDetails cardData={list.cards}
-                                                />
-                                            </div>
-                                            {provided.placeholder}
-                                        </div>
-                                    )}
-                                </Droppable>
-                            </div>
-                        </div>
+                    <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        className="column"
+                    >
+                        <div className="orderCount">{list.title}</div>
+                        <Droppable droppableId={list.id}>
+                            {(provided) => (
+                                <div
+                                    ref={provided.innerRef}
+                                    className="cardWrap"
+                                    {...provided.droppableProps}
+                                >
+                                    <div ref={provided.innerRef} className="cardList" {...provided.droppableProps}>
+                                        {list.cards.length > 0 ? list.cards.map((data, index) => (
+                                            <CardDetails cardData={data} key={data.id} index={index} />
+                                        )) : <div className="noResult">No Results Found</div>}
+                                    </div>
+                                    {provided.placeholder}
+                                </div>
+                            )}
+                        </Droppable>
                     </div>
-                )}
+                )
+                }
             </Draggable>
         );
     }

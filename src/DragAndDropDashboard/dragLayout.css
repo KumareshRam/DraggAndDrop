@@ -102,11 +102,11 @@ img{
     color: #535454;
 }
 .card{
-    padding: 15px 15px 25px;
+    padding: 15px;
     border-radius: 6px;
     background: #FFF;
     margin: 0px 8px 10px 8px;
-    border-left: 3px solid green;
+    border-left: 3px solid #58b958;
 }
 .response{
     display: flex;
@@ -151,7 +151,7 @@ img{
     font-size: 12px;
     line-height: 20px;
     color: #666666;
-    padding-bottom: 8px;
+    padding-bottom: 1px;
 }
 .baseLayer{
     display: flex;
@@ -184,4 +184,22 @@ img{
     text-align: center;
     font-size: 14px;
     color: #717171;
+}
+.msgIcon{
+    position: fixed;
+    top: 90%;
+    right: 2%;
+    bottom: 10%;
+    background: #607d8b;
+    display: flex;
+    border-radius: 30px 5px 30px 30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.msgIcon img{
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: auto auto;
 }

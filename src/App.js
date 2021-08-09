@@ -5,6 +5,7 @@ import React from 'react';
 import '../src/DragAndDropDashboard/dragLayout.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import DragList from './DragAndDropDashboard/DragList';
+import msgIcon from '../src/images/message.png';
 
 const listItems = [
   "list-1",
@@ -25,8 +26,6 @@ class App extends React.Component {
   onDragEnd = (result) => {
     const { activeList } = this.state;
     const { destination, source, draggableId, type } = result;
-    console.log('', destination, '', source, draggableId);
-
     if (!destination) {
       return;
     }
@@ -36,49 +35,39 @@ class App extends React.Component {
       newListIds.splice(destination.index, 0, draggableId);
       return;
     }
-
     const sourceList = activeList[source.droppableId];
     const destinationList = activeList[destination.droppableId];
     const draggingCard = sourceList.cards.filter(
       (card) => card.id === draggableId
     )[0];
-
     if (source.droppableId === destination.droppableId) {
       sourceList.cards.splice(source.index, 1);
       destinationList.cards.splice(destination.index, 0, draggingCard);
-      const newState = {
+      this.setState({
+        activeList: {
           ...activeList,
-          [sourceList.id]: destinationList,
-      };
-      this.setState({ activeList: newState });
+          [sourceList.id]: destinationList
+        }
+      });
     } else {
       sourceList.cards.splice(source.index, 1);
       destinationList.cards.splice(destination.index, 0, draggingCard);
 
-      const newState = {
+      this.setState({
+        activeList: {
           ...activeList,
           [sourceList.id]: sourceList,
           [destinationList.id]: destinationList,
-      };
-      this.setState({ activeList: newState });
+        }
+      });
     }
   };
 
   hanleTabChange = (isActive) => {
-    const { totalCount, all, onlyMyTickets, recentlyUpdated } = list;
-    console.log(all, 'list.all', isActive)
-    if (isActive === '1') {
-      this.setState({ activeList: all });
-    } else if (isActive === '2') {
-      this.setState({ activeList: [] });
-    } else {
-      this.setState({ activeList: [] });
-    }
     this.setState({ isActive });
   }
   render() {
     const { isActive, activeList } = this.state;
-    console.log(activeList, 'dragListLayout', listItems.map((data) => (data + 1)))
     return (
       <div className="dragListLayout">
         <Header isActive={isActive} hanleTabChange={this.hanleTabChange} />
@@ -87,7 +76,6 @@ class App extends React.Component {
             <Droppable droppableId="layout" type="list" direction="horizontal">
               {(provided) => (
                 <div
-                  // style={{ display: 'flex' }}
                   className="dragList"
                   ref={provided.innerRef}
                   {...provided.droppableProps}
@@ -100,6 +88,9 @@ class App extends React.Component {
               )}
             </Droppable>
           </DragDropContext>
+        </div>
+        <div className="msgIcon">
+          <img src={msgIcon} alt="msgIcon"/>
         </div>
       </div>
     );
