@@ -17,18 +17,18 @@ class DragList extends React.Component {
                     >
                         <div className="orderCount">{list.title}</div>
                         <Droppable droppableId={list.id}>
-                            {(provided) => (
+                            {(providedSub) => (
                                 <div
                                     ref={provided.innerRef}
                                     className="cardWrap"
-                                    {...provided.droppableProps}
+                                    {...providedSub.droppableProps}
                                 >
-                                    <div ref={provided.innerRef} className="cardList" {...provided.droppableProps}>
-                                        {list.cards.length > 0 ? list.cards.map((data, index) => (
-                                            <CardDetails cardData={data} key={data.id} index={index} />
+                                    <div ref={providedSub.innerRef} className="cardList" {...providedSub.droppableProps}>
+                                        {list.cards.length > 0 ? list.cards.map((data, keyIndex) => (
+                                            <CardDetails cardData={data} key={data.id} index={keyIndex} />
                                         )) : <div className="noResult">No Results Found</div>}
                                     </div>
-                                    {provided.placeholder}
+                                    {providedSub.placeholder}
                                 </div>
                             )}
                         </Droppable>
